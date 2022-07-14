@@ -1,7 +1,52 @@
 import styled, { createGlobalStyle } from "styled-components";
 
 const commonTheme = {
-  contentPad: 'max(calc(0.5 * (100vw - 1300px)), 2rem)'
+  contentPad: 'max(calc(0.5 * (100vw - 1300px)), 2rem)',
+  hoverEffect: `
+    &:hover{
+      &:before{
+        content: ' ';
+        position: absolute;
+        display: block;
+        background-color: rgba(0,0,0,0.3);
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      }
+    }
+  `,
+
+
+
+
+  importFonts: `
+    @font-face {
+      font-family: 'Open Sans';
+      src: url(/fonts/open-sans/OpenSans-VariableFont_wdth,wght.ttf);
+    }
+
+    @font-face {
+      font-family: 'Open Sans';
+      src: url(/fonts/open-sans/OpenSans-Italic-VariableFont_wdth,wght.ttf);
+      font-style: italic;
+    }
+
+    @font-face {
+      font-family: 'Roboto';
+      src: url(/fonts/roboto/Roboto-Regular.ttf);
+    }
+
+    @font-face {
+      font-family: 'Roboto';
+      src: url(/fonts/roboto/Roboto-Bold.ttf);
+      font-style: bold;
+    }
+  `,
+  font: {
+    header: "'Roboto', sans-serif;",
+    body: "'Open Sans', sans-serif;"
+  }
 }
 
 const lightTheme = {
@@ -43,55 +88,58 @@ const darkTheme = {
 export const ThemeHandler = theme => {
   switch (theme) {
     case 'light':
-      return {...lightTheme, ...commonTheme};
+      return { ...commonTheme, ...lightTheme };
     default:
-      return {...darkTheme, ...commonTheme};
+      return { ...commonTheme, ...darkTheme };
   }
 }
 
 export const GlobalStyles = createGlobalStyle`
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        user-select: none;
-    }
-    
-    body {
-        background: ${p => p.theme.background};
-        color: ${p=>p.theme.onBackground};
-        font-family: helvetica, arial, sans-serif;
-        font-size: 13px;
-        line-height: 1;
-    }
+  ${p => p.theme.importFonts}
 
-    #app {
-        position: absolute;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        left: 0;
-        top: 0;
-        right: 0;
-        bottom: 0;
-    }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+    font-family: ${p => p.theme.font.body};
+  }
+  
+  body {
+    background: ${p => p.theme.background};
+    color: ${p => p.theme.onBackground};
+    font-family: helvetica, arial, sans-serif;
+    font-size: 13px;
+    line-height: 1;
+  }
+
+  #app {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+  }
 `;
 
 export const Loading = styled.div`
-    ${p => p.blur ? '' : 'visibility:hidden;'}
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    z-index: 100;
-    backdrop-filter: blur(5px);
-    transition: visibility 0.3s ease;
+  ${p => p.blur ? '' : 'visibility:hidden;'}
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(5px);
+  transition: visibility 0.3s ease;
 
-    font-size: 30px;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  font-size: 30px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const Wrapper = styled.div`

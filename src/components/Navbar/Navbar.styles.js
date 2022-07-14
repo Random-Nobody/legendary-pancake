@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  position: fixed;
+  position: sticky;
+  top: 0;
   height: 50px;
   background-color: ${p => p.theme.surface};
   width: 100%;
