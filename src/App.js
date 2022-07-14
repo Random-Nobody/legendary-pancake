@@ -1,15 +1,19 @@
 import { useState } from 'react';
 import { ThemeProvider } from 'styled-components';
-import { GlobalStyles, GetTheme } from 'App.styles';
+import { GlobalStyles, ThemeHandler, Wrapper } from 'App.styles';
+
+import Navbar from 'components/Navbar/Navbar';
 
 function App() {
-  const [theme, setTheme] = useState('light');
+  const [theme, ] = useState('dark');
 
   return (
-    <ThemeProvider theme={GetTheme(theme)}>
-      <GlobalStyles>
-        hello
-      </GlobalStyles>
+    <ThemeProvider theme={ThemeHandler(theme)}>
+      <GlobalStyles />
+      <Navbar />
+      <Wrapper>
+        
+      </Wrapper>
     </ThemeProvider>
   );
 }
