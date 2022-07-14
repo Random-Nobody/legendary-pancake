@@ -1,4 +1,5 @@
-import { Wrapper, Left, Right, Logo } from './Navbar.styles';
+import { Wrapper, Left, Right } from './Navbar.styles';
+import { Link } from 'react-router-dom';
 import 'material-icons/iconfont/material-icons.css';
 
 import Spacer from 'components/Spacer';
@@ -8,11 +9,11 @@ export default function Navbar() {
   return (
     <Wrapper>
       <Left>
-        <Logo>
+        <Link to='/'>
           <img src="/logo/logo192.png" alt='logo' />
           <Spacer w='5px' />
           ATLAS CORP
-        </Logo>
+        </Link>
         <Spacer w='5px' />
       </Left>
       <Right>

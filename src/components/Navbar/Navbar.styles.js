@@ -1,4 +1,13 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const Spin = keyframes`
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+`;
 
 export const Wrapper = styled.div`
   position: sticky;
@@ -6,8 +15,8 @@ export const Wrapper = styled.div`
   height: 50px;
   background-color: ${p => p.theme.surface};
   width: 100%;
-  padding-inline: ${p=>p.theme.contentPad};
-  border-bottom: 1px ${p=>p.theme.primaryFaded} solid;
+  padding-inline: ${p => p.theme.contentPad};
+  border-bottom: 1px ${p => p.theme.primaryFaded} solid;
 
   display: flex;
   justify-content: space-between;
@@ -17,23 +26,24 @@ export const Wrapper = styled.div`
 export const Left = styled.div`
   display: inline-flex;
   align-items: center;
+
+  >a{
+    height: 100%;
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+
+    font-size: 24px;
+
+    img{
+      height: 100%;
+      padding: 5px;
+      animation: 5s linear infinite ${Spin}
+    }
+  }
 `;
 
 export const Right = styled.div`
   display: inline-flex;
   align-items: center;
-`;
-
-export const Logo = styled.div`
-  height: 100%;
-  width: 100%;
-  display: inline-flex;
-  align-items: center;
-
-  font-size: 24px;
-
-  >img{
-    height: 100%;
-    padding: 5px;
-  }
 `;

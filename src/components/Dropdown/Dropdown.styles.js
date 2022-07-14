@@ -36,7 +36,7 @@ export const Wrapper = styled.div`
 
 export const DropdownWrapper = styled.div`
   position: absolute;
-  visibility: hidden;
+  visibility: ${p=>p.test?'':'hidden'};
   border: 1px ${p=>p.theme.primaryFaded} solid;
   border-top: none;
   background-color: ${p => p.theme.surface};

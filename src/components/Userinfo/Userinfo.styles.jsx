@@ -15,5 +15,10 @@ export const UserContentWrapper = styled.div`
   padding-inline: 20px;
   padding-block: 10px;
   
-
+  >a{
+    padding-block: 5px;
+  }
+  >p{
+    padding-block: 5px;
+  }
 `;

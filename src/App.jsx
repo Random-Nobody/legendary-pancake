@@ -4,12 +4,15 @@ import { GlobalStyles, ThemeHandler, AppWrapper } from 'App.styles';
 import AppContext from 'App.context';
 
 import Navbar from 'components/Navbar/Navbar';
+import Home from 'pages/Home/Home';
 
 function App() {
   const [theme,] = useState('dark');
   const [appState, setState] = useState({
     user: {
-      name: 123
+      name: 'hello123',
+      profilePic: '/placeholders/profile-example.jpeg',
+      balance: 1355
     },
     currentWidth: 0
   });
@@ -26,7 +29,7 @@ function App() {
       <AppContext.Provider value={[appState, setState]}>
         <Navbar />
         <AppWrapper>
-          {JSON.stringify(appState, null, 2)}
+          <Home />
         </AppWrapper>
       </AppContext.Provider>
     </ThemeProvider>

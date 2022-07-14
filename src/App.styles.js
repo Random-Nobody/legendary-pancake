@@ -127,6 +127,36 @@ export const GlobalStyles = createGlobalStyle`
     color: inherit;
     text-decoration: none;
   }
+
+  button {
+    height: 40px;
+    font-size: 18px;
+    padding-inline: 10px;
+    border: none;
+    cursor: pointer;
+
+    font-family: ${p=>p.theme.font.header};
+    background-color: ${p=>p.background??'transparent'};
+    color: ${p=>p.color??'inherit'};
+
+    ${p=>p.theme.hoverSquare}
+  }
+
+  a {
+    text-align: center;
+    line-height: 30px;
+    height: 40px;
+    font-size: 18px;
+    padding-inline: 10px;
+    border: none;
+    cursor: pointer;
+
+    font-family: ${p=>p.theme.font.header};
+    background-color: ${p=>p.background??'transparent'};
+    color: ${p=>p.color??'inherit'};
+
+    ${p=>p.theme.hoverSquare}
+  }
   
   body {
     background: ${p => p.theme.background};
