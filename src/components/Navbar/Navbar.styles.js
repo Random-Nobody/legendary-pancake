@@ -7,12 +7,11 @@ export const Wrapper = styled.div`
   background-color: ${p => p.theme.surface};
   width: 100%;
   padding-inline: ${p=>p.theme.contentPad};
+  border-bottom: 1px ${p=>p.theme.primaryFaded} solid;
 
   display: flex;
   justify-content: space-between;
   align-items: stretch;
-
-  *{ text-transform: uppercase; }
 `;
 
 export const Left = styled.div`

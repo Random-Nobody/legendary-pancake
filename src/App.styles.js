@@ -2,7 +2,8 @@ import styled, { createGlobalStyle } from "styled-components";
 
 const commonTheme = {
   contentPad: 'max(calc(0.5 * (100vw - 1300px)), 2rem)',
-  hoverEffect: `
+  hoverSquare: `
+    position: relative;
     &:hover{
       &:before{
         content: ' ';
@@ -16,9 +17,22 @@ const commonTheme = {
       }
     }
   `,
-
-
-
+  hoverCircle: `
+  position: relative;
+  &:hover{
+    &:before{
+      content: ' ';
+      position: absolute;
+      display: block;
+      background-color: rgba(0,0,0,0.3);
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      border-radius: 50%;
+    }
+  }
+`,
 
   importFonts: `
     @font-face {
@@ -68,14 +82,17 @@ const lightTheme = {
 const darkTheme = {
   primary: "#03dac5",
   primary2: "#20a79a",
+  primaryFaded: '#03dac580',
   secondary: "#bb86fc",
+  secondaryFaded: '#bb86fc80',
 
   background: '#121212',
-  surface: "rgba(255,255,255,0.05)",
+  surface: '#202020',
+  surface0: "rgba(255,255,255,0.05)",
   surface1: "rgba(255,255,255,0.07)",
-  surface2: "rgba(255,255,255,0.08)",
-  surface3: "rgba(255,255,255,0.09)",
-  surface4: "rgba(255,255,255,0.011)",
+  surface2: "rgba(255,255,255,0.10)",
+  surface3: "rgba(255,255,255,0.12)",
+  surface4: "rgba(255,255,255,0.15)",
   active: '#777',
   error: "rgba(128,32,32,0.6)",
 
@@ -101,8 +118,14 @@ export const GlobalStyles = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-size: 20px;
     user-select: none;
     font-family: ${p => p.theme.font.body};
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
   }
   
   body {
@@ -142,6 +165,6 @@ export const Loading = styled.div`
   align-items: center;
 `;
 
-export const Wrapper = styled.div`
+export const AppWrapper = styled.div`
   
 `;

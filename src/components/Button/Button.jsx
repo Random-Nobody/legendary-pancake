@@ -11,6 +11,5 @@ export default styled.button`
   background-color: ${p=>p.background??'transparent'};
   color: ${p=>p.color??'inherit'};
 
-  position: relative;
-  ${p=>p.theme.hoverEffect}
+  ${p=>p.theme.hoverSquare}
 `;

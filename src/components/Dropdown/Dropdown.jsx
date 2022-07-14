@@ -1,7 +1,12 @@
-import { Wrapper } from './Dropdown.styles.js';
+import { Wrapper, DropdownWrapper } from './Dropdown.styles.js';
 
-export default function Dropdown() {
+export default function Dropdown(props) {
   return (
-    <Wrapper>Dropdown</Wrapper>
+    <Wrapper>
+      {props.children}
+      <DropdownWrapper position={props.position} offset={props.offset}>
+        <props.content/>
+      </DropdownWrapper>
+    </Wrapper>
   )
 }

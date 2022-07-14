@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { ThemeProvider } from 'styled-components';
-import { GlobalStyles, ThemeHandler, Wrapper } from 'App.styles';
+import { GlobalStyles, ThemeHandler, AppWrapper } from 'App.styles';
 import AppContext from 'App.context';
 
 import Navbar from 'components/Navbar/Navbar';
@@ -8,7 +8,9 @@ import Navbar from 'components/Navbar/Navbar';
 function App() {
   const [theme,] = useState('dark');
   const [appState, setState] = useState({
-    user: null,
+    user: {
+      name: 123
+    },
     currentWidth: 0
   });
 
@@ -23,9 +25,9 @@ function App() {
       <GlobalStyles />
       <AppContext.Provider value={[appState, setState]}>
         <Navbar />
-        <Wrapper>
+        <AppWrapper>
           {JSON.stringify(appState, null, 2)}
-        </Wrapper>
+        </AppWrapper>
       </AppContext.Provider>
     </ThemeProvider>
   );
