@@ -5,7 +5,10 @@ export const Wrapper = styled.div`
   span.material-icons{
     font-size: 35px;
     padding: 5px;
-    ${p => p.theme.hoverCircle}
+    position: relative;
+    &:hover{
+      ${p => p.theme.hoverCircle}
+    }
   }
 `;
 
@@ -15,10 +18,15 @@ export const UserContentWrapper = styled.div`
   padding-inline: 20px;
   padding-block: 10px;
   
-  >a{
+  >a, >button{
     padding-block: 5px;
+    text-transform: uppercase;
   }
   >p{
     padding-block: 5px;
   }
+`;
+
+export const Button = styled.button`
+  background-color: ${p=>p.background};
 `;

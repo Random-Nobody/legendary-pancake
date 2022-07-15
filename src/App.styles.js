@@ -3,23 +3,18 @@ import styled, { createGlobalStyle } from "styled-components";
 const commonTheme = {
   contentPad: 'max(calc(0.5 * (100vw - 1300px)), 2rem)',
   hoverSquare: `
-    position: relative;
-    &:hover{
-      &:before{
-        content: ' ';
-        position: absolute;
-        display: block;
-        background-color: rgba(0,0,0,0.3);
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-      }
+    &:before{
+      content: ' ';
+      position: absolute;
+      display: block;
+      background-color: rgba(0,0,0,0.3);
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
     }
   `,
   hoverCircle: `
-  position: relative;
-  &:hover{
     &:before{
       content: ' ';
       position: absolute;
@@ -31,7 +26,6 @@ const commonTheme = {
       right: 0;
       border-radius: 50%;
     }
-  }
 `,
 
   importFonts: `
@@ -39,26 +33,27 @@ const commonTheme = {
       font-family: 'Open Sans';
       src: url(/fonts/open-sans/OpenSans-VariableFont_wdth,wght.ttf);
     }
-
     @font-face {
       font-family: 'Open Sans';
       src: url(/fonts/open-sans/OpenSans-Italic-VariableFont_wdth,wght.ttf);
       font-style: italic;
     }
-
     @font-face {
       font-family: 'Roboto';
       src: url(/fonts/roboto/Roboto-Regular.ttf);
     }
-
     @font-face {
       font-family: 'Roboto';
       src: url(/fonts/roboto/Roboto-Bold.ttf);
       font-style: bold;
     }
+    @font-face {
+      font-family: 'Obitron';
+      src: url(/fonts/orbitron/Orbitron-VariableFont-wght.ttf);
+    }
   `,
   font: {
-    header: "'Roboto', sans-serif;",
+    header: "'Orbitron', sans-serif;",
     body: "'Open Sans', sans-serif;"
   }
 }
@@ -120,7 +115,6 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
     font-size: 20px;
     user-select: none;
-    font-family: ${p => p.theme.font.body};
   }
 
   a {
@@ -128,21 +122,7 @@ export const GlobalStyles = createGlobalStyle`
     text-decoration: none;
   }
 
-  button {
-    height: 40px;
-    font-size: 18px;
-    padding-inline: 10px;
-    border: none;
-    cursor: pointer;
-
-    font-family: ${p=>p.theme.font.header};
-    background-color: ${p=>p.background??'transparent'};
-    color: ${p=>p.color??'inherit'};
-
-    ${p=>p.theme.hoverSquare}
-  }
-
-  a {
+  button, a.hover {
     text-align: center;
     line-height: 30px;
     height: 40px;
@@ -151,11 +131,14 @@ export const GlobalStyles = createGlobalStyle`
     border: none;
     cursor: pointer;
 
-    font-family: ${p=>p.theme.font.header};
-    background-color: ${p=>p.background??'transparent'};
-    color: ${p=>p.color??'inherit'};
+    font-family: ${p => p.theme.font.header};
+    background-color: ${p => p.background ?? 'transparent'};
+    color: ${p => p.color ?? 'inherit'};
 
-    ${p=>p.theme.hoverSquare}
+    position: relative;
+    &:hover{
+      ${p => p.theme.hoverSquare}
+    }
   }
   
   body {
@@ -164,6 +147,7 @@ export const GlobalStyles = createGlobalStyle`
     font-family: helvetica, arial, sans-serif;
     font-size: 13px;
     line-height: 1;
+    font-family: ${p => p.theme.font.body};
   }
 
   #app {

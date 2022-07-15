@@ -10,7 +10,7 @@ export default function Navbar() {
     <Wrapper>
       <Left>
         <Link to='/'>
-          <img src="/logo/logo192.png" alt='logo' />
+          <img src="https://www.atlasdevelopment.io/wp-content/uploads/2022/06/cropped-atlas-3-2.png" alt='logo' />
           <Spacer w='5px' />
           ATLAS CORP
         </Link>

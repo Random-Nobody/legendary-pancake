@@ -17,6 +17,9 @@ export const Wrapper = styled.div`
   width: 100%;
   padding-inline: ${p => p.theme.contentPad};
   border-bottom: 1px ${p => p.theme.primaryFaded} solid;
+  z-index: 100;
+
+  font-family: ${p=>p.theme.font.header};
 
   display: flex;
   justify-content: space-between;
@@ -32,13 +35,13 @@ export const Left = styled.div`
     width: 100%;
     display: inline-flex;
     align-items: center;
-
+    padding: 0;
     font-size: 24px;
 
     img{
-      height: 100%;
-      padding: 5px;
-      animation: 5s linear infinite ${Spin}
+      height: 40px;
+      width: 40px;
+      //animation: 5s linear infinite ${Spin}
     }
   }
 `;

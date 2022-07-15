@@ -10,8 +10,8 @@ export default function UserCard() {
     <Spacer w='15px' />
     <Userinfo>
       <i>Welcome back:</i>
-      <p>{user.name}</p>
-      <b>Balance: ₼{user.balance}</b>
+      <b>{user.name}</b>
+      <p>Balance: ₼{user.balance}</p>
     </Userinfo>
   </Wrapper>
 }

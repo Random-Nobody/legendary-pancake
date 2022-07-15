@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import AppContext from 'App.context';
-import { Wrapper, UserContentWrapper } from "./Userinfo.styles";
+import { Wrapper, UserContentWrapper, Button } from "./Userinfo.styles";
 import Spacer from 'components/Spacer';
 import Dropdown from 'components/Dropdown/Dropdown';
 import { Link } from 'react-router-dom';
@@ -10,28 +10,43 @@ import UserCard from 'components/UserCard/UserCard';
 
 const UserContent = () => {
   const theme = useContext(ThemeContext);
+  const [, setAppContext] = useContext(AppContext);
+
+  const logout = () => setAppContext(cxt => ({ ...cxt, ...{ user: null } }));
+
   return <UserContentWrapper>
     <UserCard />
     <Spacer h='5px' line={theme.primaryFaded} />
     <Spacer h='5px' />
-    <Link to='/2'>My Profile</Link>
-    <Link to='/3'>My Wallet</Link>
-    <Link to='/4'>My Offers</Link>
+    <Link className='hover' to='/2'>My Profile</Link>
+    <Link className='hover' to='/3'>My Wallet</Link>
+    <Link className='hover' to='/4'>My Offers</Link>
     <Spacer h='5px' line={theme.primaryFaded} />
     <Spacer h='5px' />
-    <Link to='/4'>Setting</Link>
-    <button>Log out</button>
+    <Link className='hover' to='/4'>Setting</Link>
+    <button onClick={logout}>Log out</button>
   </UserContentWrapper>
 }
 
 export default function Userinfo() {
   const theme = useContext(ThemeContext);
-  const [{ user },] = useContext(AppContext);
+  const [{ user }, setAppContext] = useContext(AppContext);
+
+  const mockLogIn = () => setAppContext(cxt => ({
+    ...cxt, ...{
+      user: {
+        name: 'hello123',
+        profilePic: '/placeholders/profile-example.jpeg',
+        balance: 1355
+      }
+    }
+  }));
+
   return user === null ?
     <Wrapper>
-      <button >log in</button>
+      <Button onClick={mockLogIn} >log in</Button>
       <Spacer w='5px' />
-      <button background={theme.secondary}>sign up</button>
+      <Button background={theme.secondary}>sign up</Button>
     </Wrapper> :
     <Wrapper>
       <Dropdown content={UserContent} position={'right'} offset={'-10px'}>
