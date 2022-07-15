@@ -32,3 +32,7 @@ export const CarouselWrapper = styled.div`
   align-items: center;
   background-color: black;
 `;
+
+export const GraphWrapper = styled.div`
+  
+`;

@@ -50,7 +50,7 @@ export default function Userinfo() {
     </Wrapper> :
     <Wrapper>
       <Dropdown content={UserContent} position={'right'} offset={'-10px'}>
-        <span className="material-icons">person</span>
+        <span style={{color: theme.primary}} className="material-icons">person</span>
       </Dropdown>
     </Wrapper>
     ;
