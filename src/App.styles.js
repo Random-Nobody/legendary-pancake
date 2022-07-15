@@ -77,7 +77,7 @@ const lightTheme = {
 const darkTheme = {
   primary: "#03dac5",
   primary2: "#20a79a",
-  primaryFaded: '#03dac580',
+  primaryFaded: '#03dac5c0',
   secondary: "#bb86fc",
   secondaryFaded: '#bb86fc80',
 

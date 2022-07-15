@@ -18,6 +18,9 @@ export default function Home() {
     <Wrapper>
       <Banner backaground='url("/atlas/Generic-View.png")' >
         <img src="https://www.atlasdevelopment.io/wp-content/uploads/2022/06/red-brick.gif" alt="red brick" />
+        <div>
+          get your first atlas™ property and become a blah blah blah blah
+        </div>
       </Banner>
       <Spacer h='10px' />
       <CarouselWrapper>
